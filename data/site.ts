@@ -3,7 +3,7 @@ export const site = {
   shortName: "HQ Excavating",
   phoneDisplay: "(617) 571-5618",
   phoneHref: "+16175715618",
-  email: "estimates@example.com",
+  email: "info@highqualityexcavating.com",
   baseCity: "Massachusetts",
   serviceArea: "Serving Residential & Commercial Clients throughout Massachusetts",
   instagram: "https://www.instagram.com/highqualityexcavating/",
