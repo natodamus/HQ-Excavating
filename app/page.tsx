@@ -17,6 +17,8 @@ import { EstimateForm } from "@/components/EstimateForm";
 import { ProjectCard } from "@/components/ProjectCard";
 import { site } from "@/data/site";
 import FloatingActions from "@/components/FloatingActions";
+import Link from "next/link";
+import { services } from "@/data/services";
 
 export default function Home() {
   return (
@@ -60,12 +62,22 @@ export default function Home() {
             <div><p className="eyebrow">What We Do</p><h2>Site-development services built around the job.</h2></div>
             <p>From residential improvements to larger commercial projects, we provide practical solutions tailored to the property and the work ahead.</p>
           </div>
+
           <div className="serviceGrid">
-            {site.services.map((service, index) => (
-              <article className="serviceCard" key={service.title}>
-                <div className="serviceTop"><span>0{index + 1}</span><ArrowRight size={20} /></div>
-                <h3>{service.title}</h3><p>{service.text}</p>
-              </article>
+            {services.map((service, index) => (
+              <Link 
+                className="serviceCard" 
+                key={service.slug} 
+                href={`/services/${service.slug}`}
+              >
+                <div className="serviceTop">
+                  <span>0{index + 1}</span>
+                  <ArrowRight size={20} />
+                </div>
+              
+              <h3>{service.title}</h3>
+              <p>{service.shortDescription}</p>
+              </Link>
             ))}
           </div>
         </section>

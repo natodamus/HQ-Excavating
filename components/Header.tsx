@@ -1,34 +1,58 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
+
 import { Logo } from "./Logo";
 import { site } from "@/data/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <header className="header">
-      <a href="#top" className="brandLink" aria-label="Go to homepage">
+      <Link
+        href="/"
+        className="brandLink"
+        aria-label="Go to homepage"
+        onClick={closeMenu}
+      >
         <Logo />
-      </a>
+      </Link>
 
       <button
         className="menuButton"
         type="button"
         aria-label="Toggle navigation"
         aria-expanded={open}
+        aria-controls="primary-navigation"
         onClick={() => setOpen((value) => !value)}
       >
         {open ? <X size={22} /> : <Menu size={22} />}
       </button>
 
-      <nav className={open ? "nav navOpen" : "nav"}>
-        <a href="#services" onClick={() => setOpen(false)}>Services</a>
-        <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
-        <a href="#about" onClick={() => setOpen(false)}>About</a>
-        <a href="#estimate" onClick={() => setOpen(false)}>Free Estimate</a>
+      <nav
+        id="primary-navigation"
+        className={open ? "nav navOpen" : "nav"}
+      >
+        <Link href="/#services" onClick={closeMenu}>
+          Services
+        </Link>
+
+        <Link href="/#projects" onClick={closeMenu}>
+          Projects
+        </Link>
+
+        <Link href="/#about" onClick={closeMenu}>
+          About
+        </Link>
+
+        <Link href="/#estimate" onClick={closeMenu}>
+          Free Estimate
+        </Link>
       </nav>
 
       <a className="headerCta" href={`tel:${site.phoneHref}`}>

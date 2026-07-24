@@ -161,7 +161,7 @@ h3 { font-size: 2rem; }
 .services { background: var(--coal); }
 .sectionHeader { display: grid; grid-template-columns: 1.15fr .85fr; gap: 5rem; align-items: end; margin-bottom: 3rem; }
 .sectionHeader > p { color: var(--muted); }
-.serviceGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); }
+.serviceGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--coal); }
 .serviceCard { min-height: 290px; padding: 2rem; background: var(--coal); transition: transform .2s, background .2s; }
 .serviceCard:hover { position: relative; z-index: 2; transform: translateY(-5px); background: #242720; }
 .serviceTop { display:flex; justify-content:space-between; color:var(--gold); }
@@ -391,4 +391,281 @@ footer .logo img { width: 160px; }
   .floatingCta button {
     transition: none;
   }
+}
+/* Dynamic service pages */
+
+.serviceHero {
+  min-height: 650px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 7rem 8vw 6rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.serviceHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 6, 5, 0.96) 0%,
+      rgba(5, 6, 5, 0.86) 46%,
+      rgba(5, 6, 5, 0.35) 78%,
+      rgba(5, 6, 5, 0.25) 100%
+    );
+}
+
+.serviceHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.serviceHeroContent h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(4.4rem, 7vw, 7.5rem);
+}
+
+.serviceHeroContent > p:not(.eyebrow) {
+  max-width: 720px;
+  color: #d5d2ca;
+  font-size: 1.12rem;
+}
+
+.serviceBackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.serviceBackLink:hover {
+  color: var(--gold);
+}
+
+.serviceIntro {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6rem;
+  color: var(--black);
+  background: var(--cream);
+}
+
+.serviceIntroHeading {
+  max-width: 570px;
+}
+
+.serviceOverview {
+  max-width: 760px;
+}
+
+.serviceOverview p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.08rem;
+}
+
+.serviceCapabilities {
+  background: var(--coal);
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+}
+
+.capabilityItem {
+  min-height: 130px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.6rem;
+  background: var(--coal);
+  font-weight: 700;
+}
+
+.capabilityItem svg {
+  margin-top: 0.15rem;
+  color: var(--gold);
+}
+
+.serviceProcess {
+  color: var(--black);
+  background: var(--cream);
+}
+
+.serviceProcess .sectionHeader > p {
+  color: #5d5c57;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.processCard {
+  min-height: 270px;
+  padding: 2rem;
+  border: 1px solid rgba(13, 14, 12, 0.14);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.processCard > span {
+  display: inline-block;
+  margin-bottom: 4rem;
+  color: #9b6809;
+  font: 800 0.85rem "Barlow Condensed", sans-serif;
+  letter-spacing: 0.12em;
+}
+
+.processCard h3 {
+  margin-bottom: 0.8rem;
+}
+
+.processCard p {
+  margin-bottom: 0;
+  color: #55544f;
+}
+
+.serviceWork {
+  background: var(--coal);
+}
+
+.serviceWork .projectHeader a {
+  color: var(--gold);
+}
+
+.serviceCta {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+  color: var(--black);
+  background: var(--gold);
+}
+
+.serviceCta .eyebrow {
+  color: #5c3b04;
+}
+
+.serviceCta h2 {
+  margin-bottom: 1rem;
+}
+
+.serviceCta > div:first-child > p:not(.eyebrow) {
+  max-width: 720px;
+  font-size: 1.05rem;
+}
+
+.serviceCtaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.serviceCtaActions .primaryButton {
+  color: var(--white);
+  background: var(--black);
+}
+
+.serviceCtaActions .primaryButton:hover {
+  background: #252620;
+}
+
+.serviceCtaActions > a:not(.primaryButton) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+@media (max-width: 950px) {
+  .serviceHero {
+    min-height: 600px;
+    background-position: 60% center;
+  }
+
+  .serviceIntro,
+  .serviceCta {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .capabilityGrid,
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .serviceHero {
+    min-height: 640px;
+    padding: 6rem 1.25rem 4rem;
+    background-position: 62% center;
+  }
+
+  .serviceHeroOverlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 6, 5, 0.96),
+        rgba(5, 6, 5, 0.7)
+      );
+  }
+
+  .serviceHeroContent h1 {
+    font-size: 4rem;
+  }
+
+  .serviceHeroContent > p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+  .serviceIntro {
+    gap: 2rem;
+  }
+
+  .capabilityGrid,
+  .processGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilityItem {
+    min-height: auto;
+  }
+
+  .processCard {
+    min-height: auto;
+  }
+
+  .processCard > span {
+    margin-bottom: 2rem;
+  }
+}
+.serviceCardLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.serviceCardLink:focus-visible {
+  position: relative;
+  z-index: 3;
+  outline: 3px solid var(--gold);
+  outline-offset: -3px;
 }
