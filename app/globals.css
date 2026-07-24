@@ -234,6 +234,8 @@ footer a { display:flex;align-items:center;gap:.4rem;color:var(--gold); }
 @media(max-width:950px){
   .headerCta{display:none}.menuButton{display:grid;place-items:center;border:1px solid var(--line);color:white;background:transparent;padding:.55rem}
   .nav{position:absolute;top:82px;left:0;right:0;display:none;flex-direction:column;padding:1.4rem 5vw;background:var(--black);border-bottom:1px solid var(--line)}
+  .nav a{color:var(--white); padding:.75rem 0;border-bottom:1px solid var(--line)}
+  .nav a:hover{color:var(--gold)}  
   .navOpen{display:flex}
   .hero{grid-template-columns:1fr;padding-top:7rem}.heroVisual{position:absolute;right:-10%;bottom:-8%;width:65%;opacity:.48}
   .proofBar{grid-template-columns:1fr}.proofBar>div{border-right:0;border-bottom:1px solid var(--line)}
